@@ -45,7 +45,7 @@
             this.lblUsername.Location = new System.Drawing.Point(57, 106);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(96, 20);
-            this.lblUsername.TabIndex = 1;
+            this.lblUsername.TabIndex = 3;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
@@ -55,7 +55,7 @@
             this.lblPassword.Location = new System.Drawing.Point(57, 166);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(91, 20);
-            this.lblPassword.TabIndex = 2;
+            this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
             // txtUsername
@@ -104,7 +104,7 @@
             this.movePanel1.Location = new System.Drawing.Point(0, 0);
             this.movePanel1.Name = "movePanel1";
             this.movePanel1.Size = new System.Drawing.Size(500, 50);
-            this.movePanel1.TabIndex = 0;
+            this.movePanel1.TabIndex = 7;
             // 
             // label1
             // 
@@ -115,7 +115,7 @@
             this.label1.Location = new System.Drawing.Point(28, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 24);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 7;
             this.label1.Text = "Movie4Rent";
             // 
             // frmLogin

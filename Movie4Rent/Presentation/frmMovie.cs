@@ -112,5 +112,15 @@ namespace Movie4Rent.Presentation
             currMovie = MovieTableBind.Current as Movie;
             MovieBind.DataSource = currMovie;
         }
+
+        private void searchButton1_Click(object sender, EventArgs e)
+        {
+            frmSearchMovie _frmSearchMovie = new frmSearchMovie();
+            if (_frmSearchMovie.ShowDialog() == DialogResult.OK)
+            {
+                currMovie = _frmSearchMovie._movie;
+                MovieBind.DataSource = currMovie;
+            }
+        }
     }
 }

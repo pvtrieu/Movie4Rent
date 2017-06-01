@@ -148,6 +148,12 @@
     <Compile Include="Presentation\frmMovie.Designer.cs">
       <DependentUpon>frmMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\frmSearchMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmSearchMovie.Designer.cs">
+      <DependentUpon>frmSearchMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI component\CloseButton.resx">
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\frmMovie.resx">
       <DependentUpon>frmMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmSearchMovie.resx">
+      <DependentUpon>frmSearchMovie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -61,6 +61,7 @@
             this.btnDeleteDetail = new System.Windows.Forms.Button();
             this.btnUpdateDetail = new System.Windows.Forms.Button();
             this.btnAddDetail = new System.Windows.Forms.Button();
+            this.btnSearchMovie = new Movie4Rent.GUI_component.SearchButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetailTableBind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExport)).BeginInit();
@@ -301,7 +302,6 @@
             // DetailBind
             // 
             this.DetailBind.DataSource = typeof(Movie4Rent.Entities.ExportingDetail);
-          
             // 
             // label2
             // 
@@ -322,7 +322,7 @@
             this.cboMovie.FormattingEnabled = true;
             this.cboMovie.Location = new System.Drawing.Point(574, 362);
             this.cboMovie.Name = "cboMovie";
-            this.cboMovie.Size = new System.Drawing.Size(214, 21);
+            this.cboMovie.Size = new System.Drawing.Size(184, 21);
             this.cboMovie.TabIndex = 0;
             this.cboMovie.ValueMember = "MovieID";
             // 
@@ -375,11 +375,22 @@
             this.btnAddDetail.UseVisualStyleBackColor = false;
             this.btnAddDetail.Click += new System.EventHandler(this.btnAddDetail_Click);
             // 
+            // btnSearchMovie
+            // 
+            this.btnSearchMovie.Location = new System.Drawing.Point(768, 362);
+            this.btnSearchMovie.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSearchMovie.Name = "btnSearchMovie";
+            this.btnSearchMovie.Size = new System.Drawing.Size(20, 20);
+            this.btnSearchMovie.TabIndex = 75;
+            this.btnSearchMovie.ButtonClick += new System.EventHandler(this.btnSearchMovie_Click);
+            this.btnSearchMovie.Click += new System.EventHandler(this.btnSearchMovie_Click);
+            // 
             // frmExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 650);
+            this.Controls.Add(this.btnSearchMovie);
             this.Controls.Add(this.btnDeleteDetail);
             this.Controls.Add(this.btnUpdateDetail);
             this.Controls.Add(this.btnAddDetail);
@@ -451,5 +462,6 @@
         private System.Windows.Forms.BindingSource DetailTableBind;
         private System.Windows.Forms.BindingSource DetailBind;
         private System.Windows.Forms.BindingSource MovieBind;
+        private GUI_component.SearchButton btnSearchMovie;
     }
 }

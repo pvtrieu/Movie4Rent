@@ -171,6 +171,14 @@ namespace Movie4Rent.Presentation
                 load();
         }
 
-        
+        private void btnSearchMovie_Click(object sender, EventArgs e)
+        {
+            frmSearchMovie _frmSearchMovie = new frmSearchMovie();
+            if (_frmSearchMovie.ShowDialog() == DialogResult.OK)
+            {
+                
+                MovieBind.DataSource = _frmSearchMovie._movie;
+            }
+        }
     }
 }

@@ -58,5 +58,10 @@ namespace Movie4Rent.BUS
         {
             return MovieBUS.Quantity(movie);
         }
+
+        public static List<Movie> Search(Movie searchMovie)
+        {
+            return MovieDAO.Search(searchMovie);
+        }
     }
 }
