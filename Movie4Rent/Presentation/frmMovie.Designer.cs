@@ -36,6 +36,7 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlPoster = new System.Windows.Forms.Panel();
+            this.picPoster = new System.Windows.Forms.PictureBox();
             this.lblDesciption = new System.Windows.Forms.Label();
             this.rtxtDesciption = new System.Windows.Forms.RichTextBox();
             this.lblDirector = new System.Windows.Forms.Label();
@@ -48,11 +49,10 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
-            this.picPoster = new System.Windows.Forms.PictureBox();
             this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
             this.pnlPoster.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTopTitle
@@ -152,6 +152,16 @@
             this.pnlPoster.Size = new System.Drawing.Size(211, 261);
             this.pnlPoster.TabIndex = 40;
             // 
+            // picPoster
+            // 
+            this.picPoster.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPoster.Location = new System.Drawing.Point(0, 0);
+            this.picPoster.Name = "picPoster";
+            this.picPoster.Size = new System.Drawing.Size(211, 261);
+            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPoster.TabIndex = 0;
+            this.picPoster.TabStop = false;
+            // 
             // lblDesciption
             // 
             this.lblDesciption.AutoSize = true;
@@ -214,9 +224,9 @@
             // dgvMovie
             // 
             this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovie.Location = new System.Drawing.Point(17, 404);
+            this.dgvMovie.Location = new System.Drawing.Point(17, 407);
             this.dgvMovie.Name = "dgvMovie";
-            this.dgvMovie.Size = new System.Drawing.Size(771, 314);
+            this.dgvMovie.Size = new System.Drawing.Size(771, 231);
             this.dgvMovie.TabIndex = 67;
             // 
             // txtActors
@@ -261,16 +271,6 @@
             this.lineSeparator2.Size = new System.Drawing.Size(771, 2);
             this.lineSeparator2.TabIndex = 66;
             // 
-            // picPoster
-            // 
-            this.picPoster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPoster.Location = new System.Drawing.Point(0, 0);
-            this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(211, 261);
-            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPoster.TabIndex = 0;
-            this.picPoster.TabStop = false;
-            // 
             // lineSeparator1
             // 
             this.lineSeparator1.Location = new System.Drawing.Point(17, 38);
@@ -284,7 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 730);
+            this.ClientSize = new System.Drawing.Size(800, 650);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.txtGenres);
@@ -311,8 +311,8 @@
             this.Text = "frmMovie";
             this.Load += new System.EventHandler(this.frmMovie_Load);
             this.pnlPoster.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -33,8 +33,6 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
-            this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
             this.dgvExportDetail = new System.Windows.Forms.DataGridView();
             this.dgvExport = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +47,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
+            this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExport)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             this.lblTopTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
             this.lblTopTitle.Location = new System.Drawing.Point(12, 9);
             this.lblTopTitle.Name = "lblTopTitle";
-            this.lblTopTitle.Size = new System.Drawing.Size(109, 26);
+            this.lblTopTitle.Size = new System.Drawing.Size(110, 26);
             this.lblTopTitle.TabIndex = 1;
             this.lblTopTitle.Text = "Exporting:";
             // 
@@ -120,30 +120,12 @@
             this.lblTitle.TabIndex = 41;
             this.lblTitle.Text = "Date:";
             // 
-            // lineSeparator1
-            // 
-            this.lineSeparator1.Location = new System.Drawing.Point(17, 38);
-            this.lineSeparator1.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.lineSeparator1.MinimumSize = new System.Drawing.Size(0, 2);
-            this.lineSeparator1.Name = "lineSeparator1";
-            this.lineSeparator1.Size = new System.Drawing.Size(771, 2);
-            this.lineSeparator1.TabIndex = 2;
-            // 
-            // lineSeparator2
-            // 
-            this.lineSeparator2.Location = new System.Drawing.Point(17, 340);
-            this.lineSeparator2.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.lineSeparator2.MinimumSize = new System.Drawing.Size(0, 2);
-            this.lineSeparator2.Name = "lineSeparator2";
-            this.lineSeparator2.Size = new System.Drawing.Size(771, 2);
-            this.lineSeparator2.TabIndex = 66;
-            // 
             // dgvExportDetail
             // 
             this.dgvExportDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvExportDetail.Location = new System.Drawing.Point(17, 363);
             this.dgvExportDetail.Name = "dgvExportDetail";
-            this.dgvExportDetail.Size = new System.Drawing.Size(380, 355);
+            this.dgvExportDetail.Size = new System.Drawing.Size(380, 270);
             this.dgvExportDetail.TabIndex = 67;
             // 
             // dgvExport
@@ -276,11 +258,29 @@
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = false;
             // 
+            // lineSeparator2
+            // 
+            this.lineSeparator2.Location = new System.Drawing.Point(17, 340);
+            this.lineSeparator2.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.lineSeparator2.MinimumSize = new System.Drawing.Size(0, 2);
+            this.lineSeparator2.Name = "lineSeparator2";
+            this.lineSeparator2.Size = new System.Drawing.Size(771, 2);
+            this.lineSeparator2.TabIndex = 66;
+            // 
+            // lineSeparator1
+            // 
+            this.lineSeparator1.Location = new System.Drawing.Point(17, 38);
+            this.lineSeparator1.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.lineSeparator1.MinimumSize = new System.Drawing.Size(0, 2);
+            this.lineSeparator1.Name = "lineSeparator1";
+            this.lineSeparator1.Size = new System.Drawing.Size(771, 2);
+            this.lineSeparator1.TabIndex = 2;
+            // 
             // frmExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 730);
+            this.ClientSize = new System.Drawing.Size(800, 650);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
