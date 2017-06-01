@@ -23,9 +23,10 @@ namespace Movie4Rent.Presentation
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (StaffBUS.login(txtUsername.Text, txtPassword.Text)!= null)
+            Staff _staff = StaffBUS.login(txtUsername.Text, txtPassword.Text);
+            if (_staff!= null)
             {
-                frmMain _frmMain = new frmMain();
+                frmMain _frmMain = new frmMain(_staff);
                 this.Hide();
                 _frmMain.ShowDialog();
                 this.Close();

@@ -57,7 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\ImportBUS.cs" />
     <Compile Include="BUS\StaffBUS.cs" />
+    <Compile Include="DAO\ImportDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="Entities\BaseModel.cs" />
     <Compile Include="Entities\Exporting.cs" />
@@ -177,6 +179,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Movie4Rent.Entities.Importing.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

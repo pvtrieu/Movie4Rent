@@ -28,16 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTopTitle = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
             this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
             this.dgvImportDetail = new System.Windows.Forms.DataGridView();
             this.dgvImport = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.importIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalQuantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImportTableBind = new System.Windows.Forms.BindingSource(this.components);
+            this.dateImport = new System.Windows.Forms.DateTimePicker();
+            this.ImportBind = new System.Windows.Forms.BindingSource(this.components);
             this.txtTotalQuant = new System.Windows.Forms.TextBox();
             this.lblTotalQuant = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +57,8 @@
             this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImportTableBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImportBind)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTopTitle
@@ -80,20 +88,7 @@
             this.btnDelete.TabIndex = 48;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.btnUpdate.Location = new System.Drawing.Point(561, 296);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 26);
-            this.btnUpdate.TabIndex = 43;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -108,6 +103,7 @@
             this.btnAdd.TabIndex = 44;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblTitle
             // 
@@ -148,23 +144,68 @@
             // 
             // dgvImport
             // 
+            this.dgvImport.AutoGenerateColumns = false;
+            this.dgvImport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvImport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.importIDDataGridViewTextBoxColumn,
+            this.staffIDDataGridViewTextBoxColumn,
+            this.importDateDataGridViewTextBoxColumn,
+            this.totalQuantDataGridViewTextBoxColumn});
+            this.dgvImport.DataSource = this.ImportTableBind;
             this.dgvImport.Location = new System.Drawing.Point(17, 61);
             this.dgvImport.Name = "dgvImport";
             this.dgvImport.Size = new System.Drawing.Size(380, 261);
             this.dgvImport.TabIndex = 68;
+            this.dgvImport.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImport_CellClick);
             // 
-            // dateTimePicker1
+            // importIDDataGridViewTextBoxColumn
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(572, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker1.TabIndex = 69;
+            this.importIDDataGridViewTextBoxColumn.DataPropertyName = "ImportID";
+            this.importIDDataGridViewTextBoxColumn.HeaderText = "ImportID";
+            this.importIDDataGridViewTextBoxColumn.Name = "importIDDataGridViewTextBoxColumn";
+            // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            // 
+            // importDateDataGridViewTextBoxColumn
+            // 
+            this.importDateDataGridViewTextBoxColumn.DataPropertyName = "ImportDate";
+            this.importDateDataGridViewTextBoxColumn.HeaderText = "ImportDate";
+            this.importDateDataGridViewTextBoxColumn.Name = "importDateDataGridViewTextBoxColumn";
+            // 
+            // totalQuantDataGridViewTextBoxColumn
+            // 
+            this.totalQuantDataGridViewTextBoxColumn.DataPropertyName = "TotalQuant";
+            this.totalQuantDataGridViewTextBoxColumn.HeaderText = "TotalQuant";
+            this.totalQuantDataGridViewTextBoxColumn.Name = "totalQuantDataGridViewTextBoxColumn";
+            // 
+            // ImportTableBind
+            // 
+            this.ImportTableBind.DataSource = typeof(Movie4Rent.Entities.Importing);
+            // 
+            // dateImport
+            // 
+            this.dateImport.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ImportBind, "ImportDate", true));
+            this.dateImport.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ImportBind, "ImportDate", true));
+            this.dateImport.Location = new System.Drawing.Point(572, 61);
+            this.dateImport.Name = "dateImport";
+            this.dateImport.Size = new System.Drawing.Size(214, 20);
+            this.dateImport.TabIndex = 69;
+            // 
+            // ImportBind
+            // 
+            this.ImportBind.DataSource = typeof(Movie4Rent.Entities.Importing);
             // 
             // txtTotalQuant
             // 
+            this.txtTotalQuant.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ImportBind, "TotalQuant", true));
             this.txtTotalQuant.Location = new System.Drawing.Point(572, 124);
             this.txtTotalQuant.Name = "txtTotalQuant";
+            this.txtTotalQuant.ReadOnly = true;
             this.txtTotalQuant.Size = new System.Drawing.Size(214, 20);
             this.txtTotalQuant.TabIndex = 38;
             // 
@@ -192,8 +233,10 @@
             // 
             // txtStaffID
             // 
+            this.txtStaffID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ImportBind, "StaffID", true));
             this.txtStaffID.Location = new System.Drawing.Point(572, 188);
             this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(214, 20);
             this.txtStaffID.TabIndex = 70;
             // 
@@ -290,13 +333,12 @@
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStaffID);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateImport);
             this.Controls.Add(this.dgvImport);
             this.Controls.Add(this.dgvImportDetail);
             this.Controls.Add(this.lineSeparator2);
             this.Controls.Add(this.lblTotalQuant);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtTotalQuant);
             this.Controls.Add(this.lblTitle);
@@ -308,6 +350,8 @@
             this.Load += new System.EventHandler(this.frmImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImportTableBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImportBind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,13 +362,12 @@
         private System.Windows.Forms.Label lblTopTitle;
         private LineSeparator lineSeparator1;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblTitle;
         private LineSeparator lineSeparator2;
         private System.Windows.Forms.DataGridView dgvImportDetail;
         private System.Windows.Forms.DataGridView dgvImport;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateImport;
         private System.Windows.Forms.TextBox txtTotalQuant;
         private System.Windows.Forms.Label lblTotalQuant;
         private System.Windows.Forms.Label label1;
@@ -336,5 +379,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.BindingSource ImportBind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource ImportTableBind;
     }
 }

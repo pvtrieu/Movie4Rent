@@ -14,8 +14,7 @@ namespace Movie4Rent.Entities
 
         public int? StaffID { get; set; }
 
-        [StringLength(100)]
-        public string ImportData { get; set; }
+        public DateTime? ImportDate { get; set; }
 
         public int? TotalQuant { get; set; }
 

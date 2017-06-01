@@ -12,6 +12,12 @@ namespace Movie4Rent.Entities
         [Key]
         public int ExportID { get; set; }
 
+        public int? StaffID { get; set; }
+
+        public DateTime? ExportDate { get; set; }
+
         public int? TotalQuant { get; set; }
+
+        public virtual Staff Staff { get; set; }
     }
 }
