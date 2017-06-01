@@ -13,12 +13,23 @@ namespace Movie4Rent.Entities
         }
 
         public virtual DbSet<Exporting> Exportings { get; set; }
+        public virtual DbSet<ExportingDetail> ExportingDetails { get; set; }
         public virtual DbSet<Importing> Importings { get; set; }
+        public virtual DbSet<ImportingDetail> ImportingDetails { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.ExportingDetails)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.ImportingDetails)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
         }
     }
 }

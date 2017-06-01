@@ -28,29 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTopTitle = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
+            this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
             this.dgvExportDetail = new System.Windows.Forms.DataGridView();
+            this.exportIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movieIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailTableBind = new System.Windows.Forms.BindingSource(this.components);
             this.dgvExport = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.exportIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.exportDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalQuantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExportTableBind = new System.Windows.Forms.BindingSource(this.components);
+            this.dateExport = new System.Windows.Forms.DateTimePicker();
+            this.ExportBind = new System.Windows.Forms.BindingSource(this.components);
             this.txtTotalQuant = new System.Windows.Forms.TextBox();
             this.lblTotalQuant = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.DetailBind = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.cboMovie = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
-            this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
+            this.MovieBind = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDeleteDetail = new System.Windows.Forms.Button();
+            this.btnUpdateDetail = new System.Windows.Forms.Button();
+            this.btnAddDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExportDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailTableBind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportTableBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTopTitle
@@ -80,20 +97,7 @@
             this.btnDelete.TabIndex = 48;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
-            this.btnUpdate.FlatAppearance.BorderSize = 0;
-            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.btnUpdate.Location = new System.Drawing.Point(561, 296);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 26);
-            this.btnUpdate.TabIndex = 43;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -108,6 +112,7 @@
             this.btnAdd.TabIndex = 44;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblTitle
             // 
@@ -120,33 +125,126 @@
             this.lblTitle.TabIndex = 41;
             this.lblTitle.Text = "Date:";
             // 
+            // lineSeparator1
+            // 
+            this.lineSeparator1.Location = new System.Drawing.Point(17, 38);
+            this.lineSeparator1.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.lineSeparator1.MinimumSize = new System.Drawing.Size(0, 2);
+            this.lineSeparator1.Name = "lineSeparator1";
+            this.lineSeparator1.Size = new System.Drawing.Size(771, 2);
+            this.lineSeparator1.TabIndex = 2;
+            // 
+            // lineSeparator2
+            // 
+            this.lineSeparator2.Location = new System.Drawing.Point(17, 340);
+            this.lineSeparator2.MaximumSize = new System.Drawing.Size(2000, 2);
+            this.lineSeparator2.MinimumSize = new System.Drawing.Size(0, 2);
+            this.lineSeparator2.Name = "lineSeparator2";
+            this.lineSeparator2.Size = new System.Drawing.Size(771, 2);
+            this.lineSeparator2.TabIndex = 66;
+            // 
             // dgvExportDetail
             // 
+            this.dgvExportDetail.AutoGenerateColumns = false;
+            this.dgvExportDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExportDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvExportDetail.Location = new System.Drawing.Point(17, 363);
+            this.dgvExportDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.exportIDDataGridViewTextBoxColumn1,
+            this.movieIDDataGridViewTextBoxColumn,
+            this.quantDataGridViewTextBoxColumn});
+            this.dgvExportDetail.DataSource = this.DetailTableBind;
+            this.dgvExportDetail.Location = new System.Drawing.Point(17, 362);
             this.dgvExportDetail.Name = "dgvExportDetail";
             this.dgvExportDetail.Size = new System.Drawing.Size(380, 270);
             this.dgvExportDetail.TabIndex = 67;
+            this.dgvExportDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExportDetail_CellClick);
+            // 
+            // exportIDDataGridViewTextBoxColumn1
+            // 
+            this.exportIDDataGridViewTextBoxColumn1.DataPropertyName = "ExportID";
+            this.exportIDDataGridViewTextBoxColumn1.HeaderText = "ExportID";
+            this.exportIDDataGridViewTextBoxColumn1.Name = "exportIDDataGridViewTextBoxColumn1";
+            // 
+            // movieIDDataGridViewTextBoxColumn
+            // 
+            this.movieIDDataGridViewTextBoxColumn.DataPropertyName = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.HeaderText = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.Name = "movieIDDataGridViewTextBoxColumn";
+            // 
+            // quantDataGridViewTextBoxColumn
+            // 
+            this.quantDataGridViewTextBoxColumn.DataPropertyName = "Quant";
+            this.quantDataGridViewTextBoxColumn.HeaderText = "Quant";
+            this.quantDataGridViewTextBoxColumn.Name = "quantDataGridViewTextBoxColumn";
+            // 
+            // DetailTableBind
+            // 
+            this.DetailTableBind.DataSource = typeof(Movie4Rent.Entities.ExportingDetail);
             // 
             // dgvExport
             // 
+            this.dgvExport.AutoGenerateColumns = false;
+            this.dgvExport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvExport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvExport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.exportIDDataGridViewTextBoxColumn,
+            this.staffIDDataGridViewTextBoxColumn,
+            this.exportDateDataGridViewTextBoxColumn,
+            this.totalQuantDataGridViewTextBoxColumn});
+            this.dgvExport.DataSource = this.ExportTableBind;
             this.dgvExport.Location = new System.Drawing.Point(17, 61);
             this.dgvExport.Name = "dgvExport";
             this.dgvExport.Size = new System.Drawing.Size(380, 261);
             this.dgvExport.TabIndex = 68;
+            this.dgvExport.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvExport_CellClick);
             // 
-            // dateTimePicker1
+            // exportIDDataGridViewTextBoxColumn
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(572, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker1.TabIndex = 69;
+            this.exportIDDataGridViewTextBoxColumn.DataPropertyName = "ExportID";
+            this.exportIDDataGridViewTextBoxColumn.HeaderText = "ExportID";
+            this.exportIDDataGridViewTextBoxColumn.Name = "exportIDDataGridViewTextBoxColumn";
+            // 
+            // staffIDDataGridViewTextBoxColumn
+            // 
+            this.staffIDDataGridViewTextBoxColumn.DataPropertyName = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.HeaderText = "StaffID";
+            this.staffIDDataGridViewTextBoxColumn.Name = "staffIDDataGridViewTextBoxColumn";
+            // 
+            // exportDateDataGridViewTextBoxColumn
+            // 
+            this.exportDateDataGridViewTextBoxColumn.DataPropertyName = "ExportDate";
+            this.exportDateDataGridViewTextBoxColumn.HeaderText = "ExportDate";
+            this.exportDateDataGridViewTextBoxColumn.Name = "exportDateDataGridViewTextBoxColumn";
+            // 
+            // totalQuantDataGridViewTextBoxColumn
+            // 
+            this.totalQuantDataGridViewTextBoxColumn.DataPropertyName = "TotalQuant";
+            this.totalQuantDataGridViewTextBoxColumn.HeaderText = "TotalQuant";
+            this.totalQuantDataGridViewTextBoxColumn.Name = "totalQuantDataGridViewTextBoxColumn";
+            // 
+            // ExportTableBind
+            // 
+            this.ExportTableBind.DataSource = typeof(Movie4Rent.Entities.Exporting);
+            // 
+            // dateExport
+            // 
+            this.dateExport.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ExportBind, "ExportDate", true));
+            this.dateExport.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.ExportBind, "ExportDate", true));
+            this.dateExport.Location = new System.Drawing.Point(572, 61);
+            this.dateExport.Name = "dateExport";
+            this.dateExport.Size = new System.Drawing.Size(214, 20);
+            this.dateExport.TabIndex = 69;
+            // 
+            // ExportBind
+            // 
+            this.ExportBind.DataSource = typeof(Movie4Rent.Entities.Exporting);
             // 
             // txtTotalQuant
             // 
+            this.txtTotalQuant.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ExportBind, "TotalQuant", true));
             this.txtTotalQuant.Location = new System.Drawing.Point(572, 124);
             this.txtTotalQuant.Name = "txtTotalQuant";
+            this.txtTotalQuant.ReadOnly = true;
             this.txtTotalQuant.Size = new System.Drawing.Size(214, 20);
             this.txtTotalQuant.TabIndex = 38;
             // 
@@ -174,8 +272,10 @@
             // 
             // txtStaffID
             // 
+            this.txtStaffID.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ExportBind, "StaffID", true));
             this.txtStaffID.Location = new System.Drawing.Point(572, 188);
             this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.ReadOnly = true;
             this.txtStaffID.Size = new System.Drawing.Size(214, 20);
             this.txtStaffID.TabIndex = 70;
             // 
@@ -192,10 +292,16 @@
             // 
             // txtQuantity
             // 
+            this.txtQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetailBind, "Quant", true));
             this.txtQuantity.Location = new System.Drawing.Point(574, 418);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(214, 20);
-            this.txtQuantity.TabIndex = 72;
+            this.txtQuantity.TabIndex = 1;
+            // 
+            // DetailBind
+            // 
+            this.DetailBind.DataSource = typeof(Movie4Rent.Entities.ExportingDetail);
+          
             // 
             // label2
             // 
@@ -210,93 +316,85 @@
             // 
             // cboMovie
             // 
+            this.cboMovie.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.DetailBind, "MovieID", true));
+            this.cboMovie.DataSource = this.MovieBind;
+            this.cboMovie.DisplayMember = "Title";
             this.cboMovie.FormattingEnabled = true;
             this.cboMovie.Location = new System.Drawing.Point(574, 362);
             this.cboMovie.Name = "cboMovie";
             this.cboMovie.Size = new System.Drawing.Size(214, 21);
-            this.cboMovie.TabIndex = 75;
+            this.cboMovie.TabIndex = 0;
+            this.cboMovie.ValueMember = "MovieID";
             // 
-            // button1
+            // MovieBind
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(688, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
-            this.button1.TabIndex = 78;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
+            this.MovieBind.DataSource = typeof(Movie4Rent.Entities.Movie);
             // 
-            // button2
+            // btnDeleteDetail
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(561, 491);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 26);
-            this.button2.TabIndex = 76;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDeleteDetail.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteDetail.FlatAppearance.BorderSize = 0;
+            this.btnDeleteDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnDeleteDetail.Location = new System.Drawing.Point(688, 491);
+            this.btnDeleteDetail.Name = "btnDeleteDetail";
+            this.btnDeleteDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnDeleteDetail.TabIndex = 4;
+            this.btnDeleteDetail.Text = "Delete";
+            this.btnDeleteDetail.UseVisualStyleBackColor = false;
+            this.btnDeleteDetail.Click += new System.EventHandler(this.btnDeleteDetail_Click);
             // 
-            // button3
+            // btnUpdateDetail
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button3.Location = new System.Drawing.Point(436, 491);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 26);
-            this.button3.TabIndex = 77;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUpdateDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
+            this.btnUpdateDetail.FlatAppearance.BorderSize = 0;
+            this.btnUpdateDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnUpdateDetail.Location = new System.Drawing.Point(561, 491);
+            this.btnUpdateDetail.Name = "btnUpdateDetail";
+            this.btnUpdateDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnUpdateDetail.TabIndex = 3;
+            this.btnUpdateDetail.Text = "Update";
+            this.btnUpdateDetail.UseVisualStyleBackColor = false;
+            this.btnUpdateDetail.Click += new System.EventHandler(this.btnUpdateDetail_Click);
             // 
-            // lineSeparator2
+            // btnAddDetail
             // 
-            this.lineSeparator2.Location = new System.Drawing.Point(17, 340);
-            this.lineSeparator2.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.lineSeparator2.MinimumSize = new System.Drawing.Size(0, 2);
-            this.lineSeparator2.Name = "lineSeparator2";
-            this.lineSeparator2.Size = new System.Drawing.Size(771, 2);
-            this.lineSeparator2.TabIndex = 66;
-            // 
-            // lineSeparator1
-            // 
-            this.lineSeparator1.Location = new System.Drawing.Point(17, 38);
-            this.lineSeparator1.MaximumSize = new System.Drawing.Size(2000, 2);
-            this.lineSeparator1.MinimumSize = new System.Drawing.Size(0, 2);
-            this.lineSeparator1.Name = "lineSeparator1";
-            this.lineSeparator1.Size = new System.Drawing.Size(771, 2);
-            this.lineSeparator1.TabIndex = 2;
+            this.btnAddDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.btnAddDetail.FlatAppearance.BorderSize = 0;
+            this.btnAddDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnAddDetail.Location = new System.Drawing.Point(436, 491);
+            this.btnAddDetail.Name = "btnAddDetail";
+            this.btnAddDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnAddDetail.TabIndex = 2;
+            this.btnAddDetail.Text = "Add";
+            this.btnAddDetail.UseVisualStyleBackColor = false;
+            this.btnAddDetail.Click += new System.EventHandler(this.btnAddDetail_Click);
             // 
             // frmExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 650);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDeleteDetail);
+            this.Controls.Add(this.btnUpdateDetail);
+            this.Controls.Add(this.btnAddDetail);
             this.Controls.Add(this.cboMovie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStaffID);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateExport);
             this.Controls.Add(this.dgvExport);
             this.Controls.Add(this.dgvExportDetail);
             this.Controls.Add(this.lineSeparator2);
             this.Controls.Add(this.lblTotalQuant);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtTotalQuant);
             this.Controls.Add(this.lblTitle);
@@ -306,8 +404,14 @@
             this.Name = "frmExport";
             this.Text = "frmExport";
             this.Load += new System.EventHandler(this.frmExport_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frmExport_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvExportDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailTableBind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportTableBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExportBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,13 +422,12 @@
         private System.Windows.Forms.Label lblTopTitle;
         private LineSeparator lineSeparator1;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label lblTitle;
         private LineSeparator lineSeparator2;
         private System.Windows.Forms.DataGridView dgvExportDetail;
         private System.Windows.Forms.DataGridView dgvExport;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateExport;
         private System.Windows.Forms.TextBox txtTotalQuant;
         private System.Windows.Forms.Label lblTotalQuant;
         private System.Windows.Forms.Label label1;
@@ -333,8 +436,20 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboMovie;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteDetail;
+        private System.Windows.Forms.Button btnUpdateDetail;
+        private System.Windows.Forms.Button btnAddDetail;
+        private System.Windows.Forms.BindingSource ExportBind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exportIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exportDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource ExportTableBind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn exportIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn movieIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource DetailTableBind;
+        private System.Windows.Forms.BindingSource DetailBind;
+        private System.Windows.Forms.BindingSource MovieBind;
     }
 }

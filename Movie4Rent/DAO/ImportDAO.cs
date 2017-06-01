@@ -9,7 +9,7 @@ namespace Movie4Rent.DAO
 {
     class ImportDAO
     {
-        public static List<Importing> getAll()
+        public static List<Importing> GetAll()
         {
             using (BaseModel model = new BaseModel())
             {
@@ -33,6 +33,19 @@ namespace Movie4Rent.DAO
                 var del = model.Importings.Find(import.ImportID);
                 model.Importings.Remove(del);
                 model.SaveChanges();
+            }
+        }
+
+        public static int? Sum(Importing import)
+        {
+            using (BaseModel model = new BaseModel())
+            {
+                var sum = model.Importings.Find(import.ImportID);
+                import.TotalQuant = model.ImportingDetails.Where(x => x.ImportID == import.ImportID)
+                                                          .Sum(x => x.Quant);                
+                model.Entry(sum).CurrentValues.SetValues(import);
+                model.SaveChanges();
+                return import.TotalQuant;
             }
         }
     }

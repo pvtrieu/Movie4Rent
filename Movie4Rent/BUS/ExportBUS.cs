@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Movie4Rent.BUS
 {
-    class ImportBUS
+    class ExportBUS
     {
-        public static List<Importing> GetAll()
+        public static List<Exporting> GetAll()
         {
-            return ImportDAO.GetAll();
+            return ExportDAO.GetAll();
         }
 
-        public static bool Insert(Importing import)
+        public static bool Insert(Exporting export)
         {
             try
             {
-                ImportDAO.Insert(import);
+                ExportDAO.Insert(export);
                 return true;
             }
             catch
@@ -28,11 +28,11 @@ namespace Movie4Rent.BUS
             }
         }
 
-        public static bool Delete(Importing import)
+        public static bool Delete(Exporting export)
         {
             try
             {
-                ImportDAO.Delete(import);
+                ExportDAO.Delete(export);
                 return true;
             }
             catch
@@ -40,9 +40,9 @@ namespace Movie4Rent.BUS
                 return false;
             }
         }
-        public static int? Sum(Importing import)
+        public static int? Sum(Exporting export)
         {
-            return ImportDAO.Sum(import);
+            return ExportDAO.Sum(export);
         }
     }
 }

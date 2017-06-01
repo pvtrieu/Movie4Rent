@@ -57,13 +57,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\ExportBUS.cs" />
+    <Compile Include="BUS\ExportDetailBUS.cs" />
     <Compile Include="BUS\ImportBUS.cs" />
+    <Compile Include="BUS\ImportDetailBUS.cs" />
+    <Compile Include="BUS\MovieBUS.cs" />
     <Compile Include="BUS\StaffBUS.cs" />
+    <Compile Include="DAO\ExportDAO.cs" />
+    <Compile Include="DAO\ExportDetailDAO.cs" />
     <Compile Include="DAO\ImportDAO.cs" />
+    <Compile Include="DAO\ImportDetailDAO.cs" />
+    <Compile Include="DAO\MovieDAO.cs" />
     <Compile Include="DAO\StaffDAO.cs" />
     <Compile Include="Entities\BaseModel.cs" />
     <Compile Include="Entities\Exporting.cs" />
+    <Compile Include="Entities\ExportingDetail.cs" />
     <Compile Include="Entities\Importing.cs" />
+    <Compile Include="Entities\ImportingDetail.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="GUI component\CloseButton.cs">
@@ -179,7 +189,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Movie4Rent.Entities.Exporting.datasource" />
+    <None Include="Properties\DataSources\Movie4Rent.Entities.ExportingDetail.datasource" />
     <None Include="Properties\DataSources\Movie4Rent.Entities.Importing.datasource" />
+    <None Include="Properties\DataSources\Movie4Rent.Entities.ImportingDetail.datasource" />
+    <None Include="Properties\DataSources\Movie4Rent.Entities.Movie.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

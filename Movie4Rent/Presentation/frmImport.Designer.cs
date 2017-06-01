@@ -36,6 +36,10 @@
             this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
             this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
             this.dgvImportDetail = new System.Windows.Forms.DataGridView();
+            this.importIDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movieIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetailTableBind = new System.Windows.Forms.BindingSource(this.components);
             this.dgvImport = new System.Windows.Forms.DataGridView();
             this.importIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.staffIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,15 +54,20 @@
             this.txtStaffID = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.DetailBind = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.cboMovie = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.MovieBind = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDeleteDetail = new System.Windows.Forms.Button();
+            this.btnUpdateDetail = new System.Windows.Forms.Button();
+            this.btnAddDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailTableBind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImportTableBind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImportBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTopTitle
@@ -136,11 +145,41 @@
             // 
             // dgvImportDetail
             // 
+            this.dgvImportDetail.AutoGenerateColumns = false;
+            this.dgvImportDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvImportDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvImportDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.importIDDataGridViewTextBoxColumn1,
+            this.movieIDDataGridViewTextBoxColumn,
+            this.quantDataGridViewTextBoxColumn});
+            this.dgvImportDetail.DataSource = this.DetailTableBind;
             this.dgvImportDetail.Location = new System.Drawing.Point(17, 362);
             this.dgvImportDetail.Name = "dgvImportDetail";
             this.dgvImportDetail.Size = new System.Drawing.Size(380, 270);
             this.dgvImportDetail.TabIndex = 67;
+            this.dgvImportDetail.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvImportDetail_CellClick);
+            // 
+            // importIDDataGridViewTextBoxColumn1
+            // 
+            this.importIDDataGridViewTextBoxColumn1.DataPropertyName = "ImportID";
+            this.importIDDataGridViewTextBoxColumn1.HeaderText = "ImportID";
+            this.importIDDataGridViewTextBoxColumn1.Name = "importIDDataGridViewTextBoxColumn1";
+            // 
+            // movieIDDataGridViewTextBoxColumn
+            // 
+            this.movieIDDataGridViewTextBoxColumn.DataPropertyName = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.HeaderText = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.Name = "movieIDDataGridViewTextBoxColumn";
+            // 
+            // quantDataGridViewTextBoxColumn
+            // 
+            this.quantDataGridViewTextBoxColumn.DataPropertyName = "Quant";
+            this.quantDataGridViewTextBoxColumn.HeaderText = "Quant";
+            this.quantDataGridViewTextBoxColumn.Name = "quantDataGridViewTextBoxColumn";
+            // 
+            // DetailTableBind
+            // 
+            this.DetailTableBind.DataSource = typeof(Movie4Rent.Entities.ImportingDetail);
             // 
             // dgvImport
             // 
@@ -253,10 +292,15 @@
             // 
             // txtQuantity
             // 
+            this.txtQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DetailBind, "Quant", true));
             this.txtQuantity.Location = new System.Drawing.Point(574, 418);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(214, 20);
-            this.txtQuantity.TabIndex = 72;
+            this.txtQuantity.TabIndex = 1;
+            // 
+            // DetailBind
+            // 
+            this.DetailBind.DataSource = typeof(Movie4Rent.Entities.ImportingDetail);
             // 
             // label2
             // 
@@ -271,62 +315,73 @@
             // 
             // cboMovie
             // 
+            this.cboMovie.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.DetailBind, "MovieID", true));
+            this.cboMovie.DataSource = this.MovieBind;
+            this.cboMovie.DisplayMember = "Title";
             this.cboMovie.FormattingEnabled = true;
             this.cboMovie.Location = new System.Drawing.Point(574, 362);
             this.cboMovie.Name = "cboMovie";
             this.cboMovie.Size = new System.Drawing.Size(214, 21);
-            this.cboMovie.TabIndex = 75;
+            this.cboMovie.TabIndex = 0;
+            this.cboMovie.ValueMember = "MovieID";
             // 
-            // button1
+            // MovieBind
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(688, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
-            this.button1.TabIndex = 78;
-            this.button1.Text = "Delete";
-            this.button1.UseVisualStyleBackColor = false;
+            this.MovieBind.DataSource = typeof(Movie4Rent.Entities.Movie);
             // 
-            // button2
+            // btnDeleteDetail
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(561, 491);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 26);
-            this.button2.TabIndex = 76;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDeleteDetail.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteDetail.FlatAppearance.BorderSize = 0;
+            this.btnDeleteDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnDeleteDetail.Location = new System.Drawing.Point(688, 491);
+            this.btnDeleteDetail.Name = "btnDeleteDetail";
+            this.btnDeleteDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnDeleteDetail.TabIndex = 4;
+            this.btnDeleteDetail.Text = "Delete";
+            this.btnDeleteDetail.UseVisualStyleBackColor = false;
+            this.btnDeleteDetail.Click += new System.EventHandler(this.btnDeleteDetail_Click);
             // 
-            // button3
+            // btnUpdateDetail
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
-            this.button3.Location = new System.Drawing.Point(436, 491);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 26);
-            this.button3.TabIndex = 77;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnUpdateDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(134)))), ((int)(((byte)(244)))));
+            this.btnUpdateDetail.FlatAppearance.BorderSize = 0;
+            this.btnUpdateDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnUpdateDetail.Location = new System.Drawing.Point(561, 491);
+            this.btnUpdateDetail.Name = "btnUpdateDetail";
+            this.btnUpdateDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnUpdateDetail.TabIndex = 3;
+            this.btnUpdateDetail.Text = "Update";
+            this.btnUpdateDetail.UseVisualStyleBackColor = false;
+            this.btnUpdateDetail.Click += new System.EventHandler(this.btnUpdateDetail_Click);
+            // 
+            // btnAddDetail
+            // 
+            this.btnAddDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(184)))), ((int)(((byte)(92)))));
+            this.btnAddDetail.FlatAppearance.BorderSize = 0;
+            this.btnAddDetail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddDetail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.btnAddDetail.Location = new System.Drawing.Point(436, 491);
+            this.btnAddDetail.Name = "btnAddDetail";
+            this.btnAddDetail.Size = new System.Drawing.Size(100, 26);
+            this.btnAddDetail.TabIndex = 2;
+            this.btnAddDetail.Text = "Add";
+            this.btnAddDetail.UseVisualStyleBackColor = false;
+            this.btnAddDetail.Click += new System.EventHandler(this.btnAddDetail_Click);
             // 
             // frmImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 650);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDeleteDetail);
+            this.Controls.Add(this.btnUpdateDetail);
+            this.Controls.Add(this.btnAddDetail);
             this.Controls.Add(this.cboMovie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblQuantity);
@@ -348,10 +403,14 @@
             this.Name = "frmImport";
             this.Text = "frmImport";
             this.Load += new System.EventHandler(this.frmImport_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.frmImport_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.dgvImportDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailTableBind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImportTableBind)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ImportBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetailBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,14 +435,20 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboMovie;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteDetail;
+        private System.Windows.Forms.Button btnUpdateDetail;
+        private System.Windows.Forms.Button btnAddDetail;
         private System.Windows.Forms.BindingSource ImportBind;
         private System.Windows.Forms.DataGridViewTextBoxColumn importIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn staffIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn importDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalQuantDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource ImportTableBind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importIDDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn movieIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource DetailTableBind;
+        private System.Windows.Forms.BindingSource DetailBind;
+        private System.Windows.Forms.BindingSource MovieBind;
     }
 }
