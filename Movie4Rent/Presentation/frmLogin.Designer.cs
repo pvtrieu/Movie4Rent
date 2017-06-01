@@ -46,7 +46,7 @@
             this.lblUsername.Size = new System.Drawing.Size(96, 20);
             this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username:";
-            this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
+            
             // 
             // lblPassword
             // 
@@ -93,7 +93,7 @@
             this.closeButton1.Name = "closeButton1";
             this.closeButton1.Size = new System.Drawing.Size(24, 24);
             this.closeButton1.TabIndex = 5;
-            this.closeButton1.Load += new System.EventHandler(this.closeButton1_Load);
+ 
             // 
             // movePanel1
             // 
