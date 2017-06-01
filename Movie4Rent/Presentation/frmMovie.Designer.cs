@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTopTitle = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnImg = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlPoster = new System.Windows.Forms.Panel();
-            this.picPoster = new System.Windows.Forms.PictureBox();
             this.lblDesciption = new System.Windows.Forms.Label();
             this.rtxtDesciption = new System.Windows.Forms.RichTextBox();
             this.lblDirector = new System.Windows.Forms.Label();
@@ -48,11 +48,26 @@
             this.txtGenres = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
+            this.lblIMDB = new System.Windows.Forms.Label();
+            this.txtIMDB = new System.Windows.Forms.TextBox();
+            this.picPoster = new System.Windows.Forms.PictureBox();
+            this.searchButton1 = new Movie4Rent.GUI_component.SearchButton();
+            this.MovieBind = new System.Windows.Forms.BindingSource(this.components);
+            this.movieIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.directorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iMDBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovieTableBind = new System.Windows.Forms.BindingSource(this.components);
             this.lineSeparator2 = new Movie4Rent.Presentation.LineSeparator();
             this.lineSeparator1 = new Movie4Rent.Presentation.LineSeparator();
             this.pnlPoster.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieTableBind)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTopTitle
@@ -79,9 +94,10 @@
             this.btnDelete.Location = new System.Drawing.Point(688, 346);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 26);
-            this.btnDelete.TabIndex = 48;
+            this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnImg
             // 
@@ -93,9 +109,10 @@
             this.btnImg.Location = new System.Drawing.Point(17, 346);
             this.btnImg.Name = "btnImg";
             this.btnImg.Size = new System.Drawing.Size(211, 26);
-            this.btnImg.TabIndex = 45;
+            this.btnImg.TabIndex = 6;
             this.btnImg.Text = "Add poster";
             this.btnImg.UseVisualStyleBackColor = false;
+            this.btnImg.Click += new System.EventHandler(this.btnImg_Click);
             // 
             // btnUpdate
             // 
@@ -107,9 +124,10 @@
             this.btnUpdate.Location = new System.Drawing.Point(535, 346);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 26);
-            this.btnUpdate.TabIndex = 43;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -121,16 +139,18 @@
             this.btnAdd.Location = new System.Drawing.Point(380, 346);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 26);
-            this.btnAdd.TabIndex = 44;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtTitle
             // 
+            this.txtTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "Title", true));
             this.txtTitle.Location = new System.Drawing.Point(378, 62);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(410, 20);
-            this.txtTitle.TabIndex = 38;
+            this.txtTitle.TabIndex = 0;
             // 
             // lblTitle
             // 
@@ -150,17 +170,7 @@
             this.pnlPoster.Location = new System.Drawing.Point(17, 62);
             this.pnlPoster.Name = "pnlPoster";
             this.pnlPoster.Size = new System.Drawing.Size(211, 261);
-            this.pnlPoster.TabIndex = 40;
-            // 
-            // picPoster
-            // 
-            this.picPoster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picPoster.Location = new System.Drawing.Point(0, 0);
-            this.picPoster.Name = "picPoster";
-            this.picPoster.Size = new System.Drawing.Size(211, 261);
-            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPoster.TabIndex = 0;
-            this.picPoster.TabStop = false;
+            this.pnlPoster.TabIndex = 0;
             // 
             // lblDesciption
             // 
@@ -175,10 +185,11 @@
             // 
             // rtxtDesciption
             // 
+            this.rtxtDesciption.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "Description", true));
             this.rtxtDesciption.Location = new System.Drawing.Point(378, 133);
             this.rtxtDesciption.Name = "rtxtDesciption";
             this.rtxtDesciption.Size = new System.Drawing.Size(410, 81);
-            this.rtxtDesciption.TabIndex = 51;
+            this.rtxtDesciption.TabIndex = 2;
             this.rtxtDesciption.Text = "";
             // 
             // lblDirector
@@ -194,10 +205,11 @@
             // 
             // txtDirector
             // 
+            this.txtDirector.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "Director", true));
             this.txtDirector.Location = new System.Drawing.Point(378, 97);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(410, 20);
-            this.txtDirector.TabIndex = 38;
+            this.txtDirector.TabIndex = 1;
             // 
             // lblGenres
             // 
@@ -223,32 +235,48 @@
             // 
             // dgvMovie
             // 
+            this.dgvMovie.AutoGenerateColumns = false;
+            this.dgvMovie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMovie.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.movieIDDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.actorDataGridViewTextBoxColumn,
+            this.genreDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.directorDataGridViewTextBoxColumn,
+            this.iMDBDataGridViewTextBoxColumn});
+            this.dgvMovie.DataSource = this.MovieTableBind;
             this.dgvMovie.Location = new System.Drawing.Point(17, 407);
+            this.dgvMovie.MultiSelect = false;
             this.dgvMovie.Name = "dgvMovie";
+            this.dgvMovie.ReadOnly = true;
             this.dgvMovie.Size = new System.Drawing.Size(771, 231);
             this.dgvMovie.TabIndex = 67;
+            this.dgvMovie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovie_CellClick);
             // 
             // txtActors
             // 
+            this.txtActors.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "Actor", true));
             this.txtActors.Location = new System.Drawing.Point(378, 304);
             this.txtActors.Name = "txtActors";
             this.txtActors.Size = new System.Drawing.Size(410, 20);
-            this.txtActors.TabIndex = 38;
+            this.txtActors.TabIndex = 5;
             // 
             // txtGenres
             // 
+            this.txtGenres.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "Genre", true));
             this.txtGenres.Location = new System.Drawing.Point(378, 266);
             this.txtGenres.Name = "txtGenres";
             this.txtGenres.Size = new System.Drawing.Size(410, 20);
-            this.txtGenres.TabIndex = 68;
+            this.txtGenres.TabIndex = 4;
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(378, 226);
+            this.txtQuantity.Location = new System.Drawing.Point(587, 231);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.ReadOnly = true;
-            this.txtQuantity.Size = new System.Drawing.Size(410, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(201, 20);
             this.txtQuantity.TabIndex = 70;
             // 
             // lblQuantity
@@ -256,11 +284,108 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
-            this.lblQuantity.Location = new System.Drawing.Point(270, 227);
+            this.lblQuantity.Location = new System.Drawing.Point(512, 231);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(69, 17);
             this.lblQuantity.TabIndex = 69;
             this.lblQuantity.Text = "Quantity";
+            // 
+            // lblIMDB
+            // 
+            this.lblIMDB.AutoSize = true;
+            this.lblIMDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIMDB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
+            this.lblIMDB.Location = new System.Drawing.Point(270, 234);
+            this.lblIMDB.Name = "lblIMDB";
+            this.lblIMDB.Size = new System.Drawing.Size(50, 17);
+            this.lblIMDB.TabIndex = 69;
+            this.lblIMDB.Text = "IMDB:";
+            // 
+            // txtIMDB
+            // 
+            this.txtIMDB.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.MovieBind, "IMDB", true));
+            this.txtIMDB.Location = new System.Drawing.Point(378, 230);
+            this.txtIMDB.Name = "txtIMDB";
+            this.txtIMDB.Size = new System.Drawing.Size(100, 20);
+            this.txtIMDB.TabIndex = 3;
+            // 
+            // picPoster
+            // 
+            this.picPoster.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.MovieBind, "Poster", true));
+            this.picPoster.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPoster.Location = new System.Drawing.Point(0, 0);
+            this.picPoster.Name = "picPoster";
+            this.picPoster.Size = new System.Drawing.Size(211, 261);
+            this.picPoster.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPoster.TabIndex = 0;
+            this.picPoster.TabStop = false;
+            // 
+            // searchButton1
+            // 
+            this.searchButton1.Location = new System.Drawing.Point(767, 9);
+            this.searchButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.searchButton1.Name = "searchButton1";
+            this.searchButton1.Size = new System.Drawing.Size(20, 20);
+            this.searchButton1.TabIndex = 71;
+            this.searchButton1.ButtonClick += new System.EventHandler(this.searchButton1_Click);
+            this.searchButton1.Click += new System.EventHandler(this.searchButton1_Click);
+            // 
+            // MovieBind
+            // 
+            this.MovieBind.DataSource = typeof(Movie4Rent.Entities.Movie);
+            // 
+            // movieIDDataGridViewTextBoxColumn
+            // 
+            this.movieIDDataGridViewTextBoxColumn.DataPropertyName = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.HeaderText = "MovieID";
+            this.movieIDDataGridViewTextBoxColumn.Name = "movieIDDataGridViewTextBoxColumn";
+            this.movieIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // actorDataGridViewTextBoxColumn
+            // 
+            this.actorDataGridViewTextBoxColumn.DataPropertyName = "Actor";
+            this.actorDataGridViewTextBoxColumn.HeaderText = "Actor";
+            this.actorDataGridViewTextBoxColumn.Name = "actorDataGridViewTextBoxColumn";
+            this.actorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // genreDataGridViewTextBoxColumn
+            // 
+            this.genreDataGridViewTextBoxColumn.DataPropertyName = "Genre";
+            this.genreDataGridViewTextBoxColumn.HeaderText = "Genre";
+            this.genreDataGridViewTextBoxColumn.Name = "genreDataGridViewTextBoxColumn";
+            this.genreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // directorDataGridViewTextBoxColumn
+            // 
+            this.directorDataGridViewTextBoxColumn.DataPropertyName = "Director";
+            this.directorDataGridViewTextBoxColumn.HeaderText = "Director";
+            this.directorDataGridViewTextBoxColumn.Name = "directorDataGridViewTextBoxColumn";
+            this.directorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iMDBDataGridViewTextBoxColumn
+            // 
+            this.iMDBDataGridViewTextBoxColumn.DataPropertyName = "IMDB";
+            this.iMDBDataGridViewTextBoxColumn.HeaderText = "IMDB";
+            this.iMDBDataGridViewTextBoxColumn.Name = "iMDBDataGridViewTextBoxColumn";
+            this.iMDBDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // MovieTableBind
+            // 
+            this.MovieTableBind.DataSource = typeof(Movie4Rent.Entities.Movie);
             // 
             // lineSeparator2
             // 
@@ -285,7 +410,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 650);
+            this.Controls.Add(this.searchButton1);
+            this.Controls.Add(this.txtIMDB);
             this.Controls.Add(this.txtQuantity);
+            this.Controls.Add(this.lblIMDB);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.txtGenres);
             this.Controls.Add(this.dgvMovie);
@@ -311,8 +439,10 @@
             this.Text = "frmMovie";
             this.Load += new System.EventHandler(this.frmMovie_Load);
             this.pnlPoster.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPoster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieBind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MovieTableBind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,5 +472,17 @@
         private System.Windows.Forms.TextBox txtGenres;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.BindingSource MovieBind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn movieIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn directorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iMDBDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource MovieTableBind;
+        private System.Windows.Forms.Label lblIMDB;
+        private System.Windows.Forms.TextBox txtIMDB;
+        private GUI_component.SearchButton searchButton1;
     }
 }

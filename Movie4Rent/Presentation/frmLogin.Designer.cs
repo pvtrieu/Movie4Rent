@@ -45,7 +45,7 @@
             this.lblUsername.Location = new System.Drawing.Point(57, 106);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(96, 20);
-            this.lblUsername.TabIndex = 4;
+            this.lblUsername.TabIndex = 1;
             this.lblUsername.Text = "Username:";
             // 
             // lblPassword
@@ -55,24 +55,24 @@
             this.lblPassword.Location = new System.Drawing.Point(57, 166);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(91, 20);
-            this.lblPassword.TabIndex = 5;
+            this.lblPassword.TabIndex = 2;
             this.lblPassword.Text = "Password:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(192, 108);
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(192, 103);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(250, 23);
-            this.txtUsername.TabIndex = 1;
+            this.txtUsername.TabIndex = 3;
             // 
             // txtPassword
             // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(192, 168);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(192, 163);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(250, 23);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
@@ -84,7 +84,7 @@
             this.btnLogin.Location = new System.Drawing.Point(192, 222);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(100, 35);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -116,7 +116,19 @@
             this.movePanel1.Location = new System.Drawing.Point(0, 0);
             this.movePanel1.Name = "movePanel1";
             this.movePanel1.Size = new System.Drawing.Size(500, 50);
-            this.movePanel1.TabIndex = 0;
+            this.movePanel1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(45)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(28, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 24);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Movie4Rent";
             // 
             // frmLogin
             // 

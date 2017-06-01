@@ -12,6 +12,7 @@ namespace Movie4Rent.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Staff()
         {
+            Exportings = new HashSet<Exporting>();
             Importings = new HashSet<Importing>();
         }
 
@@ -22,6 +23,9 @@ namespace Movie4Rent.Entities
 
         [StringLength(100)]
         public string Password { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Exporting> Exportings { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Importing> Importings { get; set; }

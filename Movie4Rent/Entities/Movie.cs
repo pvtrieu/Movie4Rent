@@ -9,6 +9,13 @@ namespace Movie4Rent.Entities
     [Table("Movie")]
     public partial class Movie
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Movie()
+        {
+            ExportingDetails = new HashSet<ExportingDetail>();
+            ImportingDetails = new HashSet<ImportingDetail>();
+        }
+
         public int MovieID { get; set; }
 
         [StringLength(100)]
@@ -30,5 +37,11 @@ namespace Movie4Rent.Entities
 
         [Column(TypeName = "image")]
         public byte[] Poster { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ExportingDetail> ExportingDetails { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ImportingDetail> ImportingDetails { get; set; }
     }
 }
