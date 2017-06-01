@@ -160,6 +160,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
             this.dateTimePicker1.TabIndex = 69;
+            this.dateTimePicker1.Value = new System.DateTime(2017, 6, 1, 14, 51, 46, 0);
             // 
             // txtTotalQuant
             // 
