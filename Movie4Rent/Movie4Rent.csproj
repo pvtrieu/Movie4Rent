@@ -52,21 +52,127 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI component\CloseButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\CloseButton.Designer.cs">
+      <DependentUpon>CloseButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\ExpandButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\ExpandButton.Designer.cs">
+      <DependentUpon>ExpandButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\LineSeparator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\LineSeparator.Designer.cs">
+      <DependentUpon>LineSeparator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\MinimizeButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\MinimizeButton.Designer.cs">
+      <DependentUpon>MinimizeButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\MovePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\MovePanel.Designer.cs">
+      <DependentUpon>MovePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\PlusButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\PlusButton.Designer.cs">
+      <DependentUpon>PlusButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI component\SearchButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI component\SearchButton.Designer.cs">
+      <DependentUpon>SearchButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmExport.Designer.cs">
+      <DependentUpon>frmExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmImport.Designer.cs">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frmMovie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\frmMovie.Designer.cs">
+      <DependentUpon>frmMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI component\CloseButton.resx">
+      <DependentUpon>CloseButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI component\ExpandButton.resx">
+      <DependentUpon>ExpandButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI component\MinimizeButton.resx">
+      <DependentUpon>MinimizeButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI component\MovePanel.resx">
+      <DependentUpon>MovePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI component\PlusButton.resx">
+      <DependentUpon>PlusButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI component\SearchButton.resx">
+      <DependentUpon>SearchButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmExport.resx">
+      <DependentUpon>frmExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmImport.resx">
+      <DependentUpon>frmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\frmMovie.resx">
+      <DependentUpon>frmMovie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -75,6 +181,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\plus_hover.png" />
+    <None Include="Resources\plus_base.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\minus2.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\lookup_hover.png" />
+    <None Include="Resources\lookup_base.png" />
+    <None Include="Resources\expand2.png" />
+    <None Include="Resources\expand.png" />
+    <None Include="Resources\error2.png" />
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
