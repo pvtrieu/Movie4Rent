@@ -201,10 +201,7 @@
             // 
             // importIDDataGridViewTextBoxColumn
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(572, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker1.TabIndex = 69;
+           
             // 
             // staffIDDataGridViewTextBoxColumn
             // 
