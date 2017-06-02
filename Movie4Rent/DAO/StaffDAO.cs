@@ -13,7 +13,7 @@ namespace Movie4Rent.DAO
         {
             using (BaseModel model = new BaseModel())
             {
-                Staff staff = model.Staffs.Where(x => x.Username == username).First();
+                Staff staff = model.Staffs.Where(x => x.Username == username).FirstOrDefault();
                 if (staff != null && staff.Password == password)
                     return staff;
                 else
