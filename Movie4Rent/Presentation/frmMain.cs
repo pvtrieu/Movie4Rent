@@ -75,5 +75,14 @@ namespace Movie4Rent.Presentation
             frmExport _form = new frmExport();
             addForm(_form);
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            frmLogin _frmLogin = new frmLogin();
+            this.Hide();
+            _frmLogin.ShowDialog();
+            this.Close();
+
+        }
     }
 }
