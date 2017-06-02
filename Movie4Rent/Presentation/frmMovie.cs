@@ -122,5 +122,11 @@ namespace Movie4Rent.Presentation
                 MovieBind.DataSource = currMovie;
             }
         }
+
+        private void frmMovie_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                load();
+        }
     }
 }
